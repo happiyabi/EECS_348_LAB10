@@ -1,14 +1,13 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
-lab6: main.o matrix.o
-	$(CXX) $(CXXFLAGS) -o lab6 main.o matrix.o
-
-main.o: main.cpp matrix.h
-	$(CXX) $(CXXFLAGS) -c main.cpp
-
-matrix.o: matrix.cpp matrix.h
-	$(CXX) $(CXXFLAGS) -c matrix.cpp
+# typing "make" compiles the program, runs it, then removes the program file
+run: main.cpp
+	$(CXX) $(CXXFLAGS) -o lab10 main.cpp
+	./lab10
+	rm -f lab10
 
 clean:
-	rm -f *.o lab6
+	rm -f lab10
+
+.PHONY: run clean
